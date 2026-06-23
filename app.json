@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "Lifegate Outreach Center",
+    "slug": "lifegate-mobile-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.lifegate.church",
+      "infoPlist": {
+        "NSSpeechRecognitionUsageDescription": "Used for Audio Bible playback",
+        "NSMicrophoneUsageDescription": "Used for Audio Bible playback"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#203668"
+      },
+      "package": "com.lifegate.church",
+      "permissions": [
+        "VIBRATE",
+        "RECEIVE_BOOT_COMPLETED"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#9D1C20"
+        }
+      ],
+      "expo-font"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "d491bc9e-08e9-400a-9c83-a28bc6e9e188"
+      }
+    },
+    "owner": "lifegate-outreach-center"
+  }
+}

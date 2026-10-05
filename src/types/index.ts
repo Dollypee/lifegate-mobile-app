@@ -5,6 +5,7 @@ export interface Sermon {
   series?: string;
   topic?: string;
   date: string;
+  publishedAt?: string;
   audioUrl?: string;
   videoUrl?: string;
   thumbnailUrl?: string;
@@ -89,4 +90,32 @@ export interface Bookmark {
   note?: string;
   highlight?: string;
   createdAt: string;
+}
+// src/types/clip.ts
+export interface LifeClip {
+  id: string;
+  title: string;
+  description?: string;
+  videoUrl: string;
+  thumbnailUrl: string;
+  duration: string;
+  publishedAt: string;
+}
+
+export interface PaginatedResponse<T> {
+  data: T[];
+  page: number;
+  pageSize: number;
+  total: number;
+  totalPages: number;
+  hasNextPage: boolean;
+  hasPreviousPage: boolean;
+}
+
+export interface SermonQueryParams {
+  page?: number;
+  pageSize?: number;
+  search?: string;
+  series?: string;
+  preacher?: string;
 }

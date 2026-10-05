@@ -39,10 +39,10 @@ export const AudioBibleScreen: React.FC<Props> = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
 
   const [version, setVersion] = useState<Version>(route?.params?.version || 'KJV');
-  const [book, setBook] = useState(route?.params?.book || 'John');
-  const [chapter, setChapter] = useState(route?.params?.chapter || 3);
+  const [book, setBook] = useState(route?.params?.book || 'Genesis');
+  const [chapter, setChapter] = useState(route?.params?.chapter || 1);
   const [selectedVerse, setSelectedVerse] = useState<number | null>(route?.params?.verse || null);
-  const [repeatCount, setRepeatCount] = useState(3);
+  const [repeatCount, setRepeatCount] = useState(2);
   const [speed, setSpeed] = useState(1.0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentRepeat, setCurrentRepeat] = useState(0);
@@ -494,9 +494,9 @@ export const AudioBibleScreen: React.FC<Props> = ({ navigation, route }) => {
           <FlatList
             data={Array.from({ length: chapterCount }, (_, i) => i + 1)}
             keyExtractor={item => String(item)}
-            numColumns={5}
+            numColumns={6}
             contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 40, gap: 8 }}
-            columnWrapperStyle={{ gap: 8 }}
+            columnWrapperStyle={{ gap: 8, justifyContent: 'flex-start' }}
             renderItem={({ item }) => (
               <TouchableOpacity
                 style={[styles.chapItem, { backgroundColor: chapter === item ? colors.primary : colors.inputBg, borderColor: chapter === item ? colors.primary : colors.border }]}
@@ -592,12 +592,12 @@ const styles = StyleSheet.create({
   suggRow: { flexDirection: 'row', gap: 8, marginTop: 12 },
   suggChip: { paddingHorizontal: 14, paddingVertical: 8, borderRadius: 20, borderWidth: 1 },
   modal: { flex: 1, paddingTop: 20 },
-  modalHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 20, paddingBottom: 14 },
+  modalHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 20, paddingBottom: 14, marginTop: 24 },
   modalTitle: { fontSize: 18, fontWeight: '800' },
   modalSearch: { marginHorizontal: 16, marginBottom: 12, borderWidth: 1, borderRadius: 10, paddingHorizontal: 14, paddingVertical: 10, fontSize: 15 },
   bookItem: { paddingVertical: 12, paddingHorizontal: 14, borderRadius: 10, borderWidth: 1, alignItems: 'center' },
   bookItemText: { fontSize: 14, fontWeight: '600' },
-  chapItem: { flex: 1, aspectRatio: 1, borderRadius: 10, borderWidth: 1, justifyContent: 'center', alignItems: 'center' },
+  chapItem: { width: 56, height: 56, borderRadius: 10, borderWidth: 1, justifyContent: 'center', alignItems: 'center' },
   chapItemText: { fontSize: 15, fontWeight: '700' },
   overlay: { flex: 1, justifyContent: 'flex-end' },
   versionSheet: { borderTopLeftRadius: 20, borderTopRightRadius: 20, padding: 20, borderWidth: 1, borderBottomWidth: 0 },

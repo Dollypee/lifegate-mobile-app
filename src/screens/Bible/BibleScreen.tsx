@@ -239,9 +239,9 @@ export const BibleScreen: React.FC<Props> = ({ navigation }) => {
           <FlatList
             data={Array.from({ length: chapterCount }, (_, i) => i + 1)}
             keyExtractor={item => String(item)}
-            numColumns={5}
+            numColumns={6}
             contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 40, gap: 8 }}
-            columnWrapperStyle={{ gap: 8 }}
+            columnWrapperStyle={{ gap: 8, justifyContent: 'flex-start' }}
             renderItem={({ item }) => (
               <TouchableOpacity
                 style={[styles.chapItem, { backgroundColor: chapter === item ? colors.primary : colors.inputBg, borderColor: chapter === item ? colors.primary : colors.border }]}
@@ -316,7 +316,7 @@ const styles = StyleSheet.create({
   modalSearch: { marginHorizontal: 16, marginBottom: 12, borderWidth: 1, borderRadius: 10, paddingHorizontal: 14, paddingVertical: 10, fontSize: 15 },
   bookItem: { paddingVertical: 12, paddingHorizontal: 14, borderRadius: 10, borderWidth: 1, alignItems: 'center' },
   bookItemText: { fontSize: 14, fontWeight: '600' },
-  chapItem: { flex: 1, aspectRatio: 1, borderRadius: 10, borderWidth: 1, justifyContent: 'center', alignItems: 'center' },
+  chapItem: { width: 56, height: 56, borderRadius: 10, borderWidth: 1, justifyContent: 'center', alignItems: 'center' },
   chapItemText: { fontSize: 15, fontWeight: '700' },
   overlay: { flex: 1, justifyContent: 'flex-end' },
   versionSheet: { borderTopLeftRadius: 20, borderTopRightRadius: 20, padding: 20, borderWidth: 1, borderBottomWidth: 0 },
